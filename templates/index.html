@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wi-Fi QR Code Generator</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wi-Fi QR Code Generator</h1>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="POST">
+            <label for="ssid">SSID:</label>
+            <input type="text" id="ssid" name="ssid" required>
+            
+            <label for="password">Password:</label>
+            <input type="text" id="password" name="password">
+            
+            <label for="security">Security Type:</label>
+            <select id="security" name="security">
+                <option value="WPA">WPA/WPA2</option>
+                <option value="WEP">WEP</option>
+                <option value="nopass">None</option>
+            </select>
+            
+            <button type="submit">Generate QR Code</button>
+        </form>
+    </div>
+</body>
+</html>
